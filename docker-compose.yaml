@@ -1,0 +1,18 @@
+version: '3.9'
+
+services:
+  ai-lab:
+    image: cuda12cudnn22
+    restart: always
+    volumes:
+      - ./jupyter_mount:/workspace
+      - ./wandb_mount/wandb/config:/root/.config/wandb
+    ports:
+      - '8888:8888'
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
