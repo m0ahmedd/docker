@@ -28,7 +28,9 @@ RUN conda install -c anaconda -y python=${PY_VER}
 RUN conda install -c anaconda -y \
     pytorch torchvision torchaudio cudatoolkit=11.3.1 -c pytorch &&\
     conda install -c conda-forge wandb  &&\
-    conda install -c anaconda jupyter
+    conda install -c anaconda jupyter &&\
+    jupyter notebook --generate-config
+
 
     # conda-forge wandb \
     # pytorch torchvision torchaudio cudatoolkit=12.0.1 -c pytorch

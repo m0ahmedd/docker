@@ -2,10 +2,11 @@ version: '3.9'
 
 services:
   ai-lab:
-    image: cuda12cudnn22
+    image: m0ahmedd/cuda12cudnn22:v1
     restart: always
     volumes:
       - ./jupyter_mount:/workspace
+      - ./jupyter_config:/root/.jupyter/
       - ./wandb_mount/wandb/config:/root/.config/wandb
     ports:
       - '8888:8888'

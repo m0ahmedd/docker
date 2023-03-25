@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ai-lab-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ai-lab
+  template:
+    metadata:
+      labels:
+        app: ai-lab
+    spec:
+      containers:
+      - name: ai-lab-node
+        image: m0ahmedd/cuda12cudnn22:v1
+        volumeMounts:
+        - mountPath: /workspace
+          name: jupyter-data
+        - mountPath: /root/.jupyter
+          name: jupyter-config
+        - mountPath: /root/.config/wandb
+          name: wandb-config
+      volumes:
+      - name: jupyter-data
+        hostPath:
+          type: DirectoryOrCreate
+          path: /home/zz/video_src/jupyter_mount
+      - name: jupyter-config
+        hostPath:
+          type: DirectoryOrCreate
+          path: /home/zz/video_src/jupyter_config
+      - name: wandb-config
+        hostPath:
+          type: DirectoryOrCreate
+          path: /home/zz/video_src/wandb_mount/wandb/config
+                
