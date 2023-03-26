@@ -29,7 +29,9 @@ RUN conda install -c anaconda -y \
     pytorch torchvision torchaudio cudatoolkit=11.3.1 -c pytorch &&\
     conda install -c conda-forge wandb  &&\
     conda install -c anaconda jupyter &&\
-    jupyter notebook --generate-config
+    jupyter notebook --generate-config 
+
+COPY ./jupyter_config/jupyter_notebook_config.py /root/.jupyter
 
 
     # conda-forge wandb \

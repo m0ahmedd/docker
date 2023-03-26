@@ -14,12 +14,14 @@ spec:
     spec:
       containers:
       - name: ai-lab-node
-        image: m0ahmedd/cuda12cudnn22:v1
+        image: m0ahmedd/cuda12cudnn22:v2
+        # command: ["jupyter", "notebook"]
+        # args: ["--allow-root", "--NotebookApp.token=03c7f527bad9d22ec5a179b1c8e73117220e3b57ee872958"]
         volumeMounts:
         - mountPath: /workspace
           name: jupyter-data
-        - mountPath: /root/.jupyter
-          name: jupyter-config
+        # - mountPath: /root/.jupyter/
+        #   name: jupyter-config
         - mountPath: /root/.config/wandb
           name: wandb-config
       volumes:
@@ -35,4 +37,3 @@ spec:
         hostPath:
           type: DirectoryOrCreate
           path: /home/zz/video_src/wandb_mount/wandb/config
-                

@@ -184,7 +184,7 @@ c = get_config()  #noqa
 ## "
 #          Require authentication to access prometheus metrics.
 #  Default: True
-# c.NotebookApp.authenticate_prometheus = True
+c.NotebookApp.authenticate_prometheus = False
 
 ## Reload the webapp when changes are made to any Python src files.
 #  Default: False
@@ -838,7 +838,7 @@ c.NotebookApp.token = ''
 ## Username for the Session. Default is your system username.
 #  Default: 'username'
 # c.Session.username = 'username'
-c.NotebookApp.username= "ai-lab" 
+# c.NotebookApp.username= "ai-lab" 
 #------------------------------------------------------------------------------
 # MultiKernelManager(LoggingConfigurable) configuration
 #------------------------------------------------------------------------------
