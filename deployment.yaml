@@ -20,20 +20,15 @@ spec:
         volumeMounts:
         - mountPath: /workspace
           name: jupyter-data
-        # - mountPath: /root/.jupyter/
-        #   name: jupyter-config
         - mountPath: /root/.config/wandb
           name: wandb-config
+          
       volumes:
       - name: jupyter-data
         hostPath:
-          type: DirectoryOrCreate
           path: /home/zz/video_src/jupyter_mount
-      - name: jupyter-config
-        hostPath:
           type: DirectoryOrCreate
-          path: /home/zz/video_src/jupyter_config
       - name: wandb-config
         hostPath:
-          type: DirectoryOrCreate
           path: /home/zz/video_src/wandb_mount/wandb/config
+          type: DirectoryOrCreate
